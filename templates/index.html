@@ -6,8 +6,8 @@
      <title>Button Clicker</title>
      <style>
          body {
-             background-color: yellow;
-             color: black; /* To make the text visible on a black background */
+             /* background-color: yellow; */ /* Base color removed, handled by theme */
+             /* color: black; */ /* Base color removed, handled by theme */
              font-family: Arial, sans-serif;
              display: flex;
              flex-direction: column;
@@ -15,36 +15,88 @@
              align-items: center;
              height: 100vh;
              margin: 0;
+             transition: background-color 0.3s, color 0.3s; /* Smooth transition */
          }
+         body.light {
+             background-color: yellow;
+             color: black;
+         }
+         body.dark {
+             background-color: black;
+             color: white;
+         }
+
          .button-container button {
              padding: 10px 20px;
              margin: 10px;
              font-size: 16px;
              cursor: pointer;
-             background-color: #333;
-             color: white;
+             /* background-color: #333; */ /* Handled by theme */
+             /* color: white; */ /* Handled by theme */
              border: none;
              border-radius: 5px;
          }
+         body.light .button-container button {
+             background-color: #555; /* Darker buttons on light theme */
+             color: white;
+         }
+         body.dark .button-container button {
+             background-color: #333;
+             color: white;
+         }
+
          .message {
              margin-top: 20px;
              font-size: 24px;
              font-weight: bold;
+             /* Text color will be inherited from body's theme */
          }
+
          .gemini-logo {
              position: absolute;
-             top: 10px;
-             right: 10px;
+             top: 20px; /* Adjusted for theme toggle button */
+             right: 20px;
              display: flex;
              align-items: center;
+         }
+         body.light .gemini-logo span {
+             color: black;
+         }
+         body.dark .gemini-logo span {
+             color: white;
          }
          .gemini-logo img {
              height: 30px; /* Adjust size as needed */
              margin-right: 10px;
          }
+
+         .theme-toggle {
+             position: absolute;
+             top: 20px;
+             left: 20px;
+             padding: 8px 15px;
+             text-decoration: none;
+             border-radius: 5px;
+             font-size: 14px;
+         }
+         body.light .theme-toggle {
+             background-color: #333;
+             color: white;
+         }
+         body.dark .theme-toggle {
+             background-color: #f0f0f0; /* Light background for dark theme */
+             color: black;
+         }
      </style>
  </head>
- <body>
+ <body class="{{ current_theme }}">
+     <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
+         {% if current_theme == 'dark' %}
+             🌞 Light Mode
+         {% else %}
+             🌜 Dark Mode
+         {% endif %}
+     </a>
      <div class="gemini-logo">
          <img src="{{ url_for('static', filename='gemini.png') }}" alt="Gemini Logo">
          <span>Built with Gemini</span>
