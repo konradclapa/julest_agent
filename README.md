@@ -2,7 +2,7 @@
 
 This is a simple Flask web application that displays a page with two buttons and a message. It also features a theme toggling functionality (light/dark mode) with persistence.
 
-## Project Structure
+## Project Folders
 
 ```
 .
@@ -30,7 +30,7 @@ This is a simple Flask web application that displays a page with two buttons and
 -   Python 3.x
 -   `pip` (Python package installer)
 
-### Installation
+### Installation manual
 
 1.  Clone the repository:
     ```bash
