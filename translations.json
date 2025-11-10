@@ -1,7 +1,9 @@
 {
   "en": {
-    "light_mode": "🌞 Light Mode",
-    "dark_mode": "🌜 Dark Mode",
+    "light_mode_emoji": "&#127774;",
+    "light_mode_text": "Light Mode",
+    "dark_mode_emoji": "&#127771;",
+    "dark_mode_text": "Dark Mode",
     "built_with_gemini": "Built with Gemini",
     "please_click_button": "Please click a button.",
     "button1_clicked": "Button 1 was clicked!",
@@ -13,8 +15,10 @@
     "translate_english": "Translate English"
   },
   "el": {
-    "light_mode": "🌞 Φωτεινή λειτουργία",
-    "dark_mode": "🌜 Σκοτεινή λειτουργία",
+    "light_mode_emoji": "&#127774;",
+    "light_mode_text": "Φωτεινή λειτουργία",
+    "dark_mode_emoji": "&#127771;",
+    "dark_mode_text": "Σκοτεινή λειτουργία",
     "built_with_gemini": "Κατασκευάστηκε με το Gemini",
     "please_click_button": "Παρακαλώ πατήστε ένα κουμπί.",
     "button1_clicked": "Το κουμπί 1 πατήθηκε!",

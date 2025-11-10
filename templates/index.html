@@ -93,9 +93,9 @@
     <div class="top-left-controls">
         <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
             {% if current_theme == 'dark' %}
-                {{ t.light_mode }}
+                {{ t.light_mode_emoji | safe }} {{ t.light_mode_text }}
             {% else %}
-                {{ t.dark_mode }}
+                {{ t.dark_mode_emoji | safe }} {{ t.dark_mode_text }}
             {% endif %}
         </a>
         <a href="{{ url_for('toggle_language') }}" class="language-toggle">

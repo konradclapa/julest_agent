@@ -42,6 +42,7 @@ def test_default_theme_and_language(client):
 
     response_data = response.data.decode('utf-8')
     assert '<body class="dark">' in response_data
+    assert '&#127774;' in response_data
     assert 'Light Mode' in response_data
     assert 'Translate Greek' in response_data
 
@@ -55,6 +56,7 @@ def test_theme_toggling(client):
     response_light_page = client.get('/')
     response_data_light = response_light_page.data.decode('utf-8')
     assert '<body class="light">' in response_data_light
+    assert '&#127771;' in response_data_light
     assert 'Dark Mode' in response_data_light
 
     # Toggle back to Dark Mode
@@ -65,6 +67,7 @@ def test_theme_toggling(client):
     response_dark_page = client.get('/')
     response_data_dark = response_dark_page.data.decode('utf-8')
     assert '<body class="dark">' in response_data_dark
+    assert '&#127774;' in response_data_dark
     assert 'Light Mode' in response_data_dark
 
 def test_language_toggling(client):
@@ -77,6 +80,7 @@ def test_language_toggling(client):
     response_greek_page = client.get('/')
     response_data_greek = response_greek_page.data.decode('utf-8')
     assert 'Μετάφραση στα Αγγλικά' in response_data_greek # "Translate to English" in Greek
+    assert '&#127774;' in response_data_greek
     assert 'Φωτεινή λειτουργία' in response_data_greek # "Light Mode" in Greek
 
     # Toggle back to English
@@ -87,4 +91,5 @@ def test_language_toggling(client):
     response_english_page = client.get('/')
     response_data_english = response_english_page.data.decode('utf-8')
     assert 'Translate Greek' in response_data_english
+    assert '&#127774;' in response_data_english
     assert 'Light Mode' in response_data_english
