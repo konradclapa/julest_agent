@@ -1,122 +1,126 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Button Clicker</title>
-     <style>
-         body {
-             /* background-color: yellow; */ /* Base color removed, handled by theme */
-             /* color: black; */ /* Base color removed, handled by theme */
-             font-family: Arial, sans-serif;
-             display: flex;
-             flex-direction: column;
-             justify-content: center;
-             align-items: center;
-             height: 100vh;
-             margin: 0;
-             transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-         }
-         body.light {
-             background-color: yellow;
-             color: black;
-         }
-         body.dark {
-             background-color: black;
-             color: white;
-         }
-
-         .button-container button {
-             padding: 10px 20px;
-             margin: 10px;
-             font-size: 16px;
-             cursor: pointer;
-             /* background-color: #333; */ /* Handled by theme */
-             /* color: white; */ /* Handled by theme */
-             border: none;
-             border-radius: 5px;
-         }
-         body.light .button-container button {
-             background-color: #555; /* Darker buttons on light theme */
-             color: white;
-         }
-         body.dark .button-container button {
-             background-color: #333;
-             color: white;
-         }
-
-         .message {
-             margin-top: 20px;
-             font-size: 24px;
-             font-weight: bold;
-             /* Text color will be inherited from body's theme */
-         }
-
-         .gemini-logo {
-             position: absolute;
-             top: 20px; /* Adjusted for theme toggle button */
-             right: 20px;
-             display: flex;
-             align-items: center;
-         }
-         body.light .gemini-logo span {
-             color: black;
-         }
-         body.dark .gemini-logo span {
-             color: white;
-         }
-         .gemini-logo img {
-             height: 30px; /* Adjust size as needed */
-             margin-right: 10px;
-         }
-
-         .theme-toggle {
-             position: absolute;
-             top: 20px;
-             left: 20px;
-             padding: 8px 15px;
-             text-decoration: none;
-             border-radius: 5px;
-             font-size: 14px;
-         }
-         body.light .theme-toggle {
-             background-color: #333;
-             color: white;
-         }
-         body.dark .theme-toggle {
-             background-color: #f0f0f0; /* Light background for dark theme */
-             color: black;
-         }
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Clicker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: yellow;
+            color: black;
+        }
+        body.dark {
+            background-color: black;
+            color: white;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        body.light .button-container button {
+            background-color: #555;
+            color: white;
+        }
+        body.dark .button-container button {
+            background-color: #333;
+            color: white;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .gemini-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        body.light .gemini-logo span {
+            color: black;
+        }
+        body.dark .gemini-logo span {
+            color: white;
+        }
+        .gemini-logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .top-left-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle, .language-toggle {
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        body.light .theme-toggle, body.light .language-toggle {
+            background-color: #333;
+            color: white;
+        }
+        body.dark .theme-toggle, body.dark .language-toggle {
+            background-color: #f0f0f0;
+            color: black;
+        }
         .footer {
             position: absolute;
             bottom: 10px;
             font-size: 12px;
         }
-     </style>
- </head>
- <body class="{{ current_theme }}">
-     <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
-         {% if current_theme == 'dark' %}
-             🌞 Light Mode
-         {% else %}
-             🌜 Dark Mode
-         {% endif %}
-     </a>
-     <div class="gemini-logo">
-         <img src="{{ url_for('static', filename='gemini.png') }}" alt="Gemini Logo">
-         <span>Built with Gemini</span>
-     </div>
-     <div class="message">
-         {{ message }}
-     </div>
-     <div class="button-container">
-         <form method="post">
-             <button type="submit" name="button1">Button 1</button>
-             <button type="submit" name="button2">Button 2</button>
-         </form>
-     </div>
-    <div class="footer">
-        created with Jules
+    </style>
+</head>
+<body class="{{ current_theme }}">
+    <div class="top-left-controls">
+        <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
+            {% if current_theme == 'dark' %}
+                {{ t.light_mode_emoji | safe }} {{ t.light_mode_text }}
+            {% else %}
+                {{ t.dark_mode_emoji | safe }} {{ t.dark_mode_text }}
+            {% endif %}
+        </a>
+        <a href="{{ url_for('toggle_language') }}" class="language-toggle">
+            {% if lang == 'en' %}
+                {{ t.translate_greek }}
+            {% else %}
+                {{ t.translate_english }}
+            {% endif %}
+        </a>
     </div>
- </body>
- </html>
+    <div class="gemini-logo">
+        <img src="{{ url_for('static', filename='gemini.png') }}" alt="Gemini Logo">
+        <span>{{ t.built_with_gemini }}</span>
+    </div>
+    <div class="message">
+        {{ message }}
+    </div>
+    <div class="button-container">
+        <form method="post">
+            <button type="submit" name="button1">{{ t.button1 }}</button>
+            <button type="submit" name="button2">{{ t.button2 }}</button>
+        </form>
+    </div>
+    <div class="footer">
+        {{ t.created_with_jules }}
+    </div>
+</body>
+</html>

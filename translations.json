@@ -1,0 +1,32 @@
+{
+  "en": {
+    "light_mode_emoji": "&#127774;",
+    "light_mode_text": "Light Mode",
+    "dark_mode_emoji": "&#127771;",
+    "dark_mode_text": "Dark Mode",
+    "built_with_gemini": "Built with Gemini",
+    "please_click_button": "Please click a button.",
+    "button1_clicked": "Button 1 was clicked!",
+    "button2_clicked": "Button 2 was clicked!",
+    "button1": "Button 1",
+    "button2": "Button 2",
+    "created_with_jules": "created with Jules",
+    "translate_greek": "Translate Greek",
+    "translate_english": "Translate English"
+  },
+  "el": {
+    "light_mode_emoji": "&#127774;",
+    "light_mode_text": "Φωτεινή λειτουργία",
+    "dark_mode_emoji": "&#127771;",
+    "dark_mode_text": "Σκοτεινή λειτουργία",
+    "built_with_gemini": "Κατασκευάστηκε με το Gemini",
+    "please_click_button": "Παρακαλώ πατήστε ένα κουμπί.",
+    "button1_clicked": "Το κουμπί 1 πατήθηκε!",
+    "button2_clicked": "Το κουμπί 2 πατήθηκε!",
+    "button1": "Κουμπί 1",
+    "button2": "Κουμπί 2",
+    "created_with_jules": "δημιουργήθηκε με τον Jules",
+    "translate_greek": "Μετάφραση στα Ελληνικά",
+    "translate_english": "Μετάφραση στα Αγγλικά"
+  }
+}
