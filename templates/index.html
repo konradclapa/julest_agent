@@ -4,6 +4,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Button Clicker</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
      <style>
          body {
              /* background-color: yellow; */ /* Base color removed, handled by theme */
@@ -92,15 +93,13 @@
             bottom: 10px;
             font-size: 12px;
         }
-        .title-image {
-            width: 100%;
-            height: 50vh;
-            object-fit: cover;
-        }
      </style>
  </head>
  <body class="{{ current_theme }}">
-    <img src="{{ url_for('static', filename='title_image.jpg') }}" alt="Title Image" class="title-image">
+    <div class="title-container">
+        <img src="{{ url_for('static', filename='title_image.jpg') }}" alt="Title Image" class="title-image">
+        <h2 class="subtitle">Welcome to Cyprus</h2>
+    </div>
      <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
          {% if current_theme == 'dark' %}
              🌞 Light Mode
