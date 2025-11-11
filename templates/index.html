@@ -92,9 +92,15 @@
             bottom: 10px;
             font-size: 12px;
         }
+        .title-image {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+        }
      </style>
  </head>
  <body class="{{ current_theme }}">
+    <img src="{{ url_for('static', filename='title_image.jpg') }}" alt="Title Image" class="title-image">
      <a href="{{ url_for('toggle_theme') }}" class="theme-toggle">
          {% if current_theme == 'dark' %}
              🌞 Light Mode
