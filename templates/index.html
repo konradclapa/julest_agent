@@ -88,11 +88,30 @@
              color: black;
          }
 
-         .header-image {
-             display: block;
+         .header-container {
+             position: relative;
+             display: inline-block;
              margin: 20px auto;
              max-width: 400px;
+         }
+
+         .header-image {
+             display: block;
+             width: 100%;
              height: auto;
+         }
+
+         .header-overlay-text {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             color: white;
+             font-size: 28px;
+             font-weight: bold;
+             text-align: center;
+             text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e6e6, 0 0 40px #00e6e6;
+             width: 100%;
          }
      </style>
  </head>
@@ -108,10 +127,13 @@
          <img src="{{ url_for('static', filename='gemini.png') }}" alt="Gemini Logo">
          <span>Built with Gemini</span>
      </div>
+     <div class="header-container">
+         <img src="{{ url_for('static', filename='Edenburg.png') }}" alt="Edenburg" class="header-image">
+         <div class="header-overlay-text">Welcome to Edinburgh</div>
+     </div>
      <div class="message">
          {{ message }}
      </div>
-     <img src="{{ url_for('static', filename='Edenburg.png') }}" alt="Edenburg" class="header-image">
      <div class="button-container">
          <form method="post">
              <button type="submit" name="button1">Button 1</button>
