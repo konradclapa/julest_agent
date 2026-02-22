@@ -98,6 +98,14 @@
              display: block;
              margin: 0 auto;
          }
+         .welcome-text {
+             font-size: 32px;
+             font-weight: bold;
+             color: #ffff00;
+             text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
+             margin-bottom: 20px;
+             text-align: center;
+         }
      </style>
  </head>
  <body class="{{ current_theme }}">
@@ -112,11 +120,14 @@
          <img src="{{ url_for('static', filename='gemini.png') }}" alt="Gemini Logo">
          <span>Built with Gemini</span>
      </div>
-     <div class="message">
-         {{ message }}
+     <div class="welcome-text">
+         Welcome to Warsaw
      </div>
      <div class="header">
          <img src="{{ url_for('static', filename='warszawawa.png') }}" alt="Conference Header">
+     </div>
+     <div class="message">
+         {{ message }}
      </div>
      <div class="button-container">
          <form method="post">
