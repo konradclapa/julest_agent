@@ -87,6 +87,13 @@
              background-color: #f0f0f0; /* Light background for dark theme */
              color: black;
          }
+
+         .header-image {
+             display: block;
+             margin: 20px auto;
+             max-width: 400px;
+             height: auto;
+         }
      </style>
  </head>
  <body class="{{ current_theme }}">
@@ -104,6 +111,7 @@
      <div class="message">
          {{ message }}
      </div>
+     <img src="{{ url_for('static', filename='Edenburg.png') }}" alt="Edenburg" class="header-image">
      <div class="button-container">
          <form method="post">
              <button type="submit" name="button1">Button 1</button>
